@@ -41,11 +41,12 @@ export default function FormComponent() {
     <div>
       <div className="form">
         <form onSubmit={handleClick} className="form__content">
-          <label htmlFor="firstname">Firstname</label>
+          <label htmlFor="firstname">Firstname </label>
           <input
             type="text"
             onChange={handleChange}
             name="firstname"
+            id="firstname"
             value={formData.firstname}
           />
 
@@ -54,6 +55,7 @@ export default function FormComponent() {
             type="text"
             onChange={handleChange}
             name="lastname"
+            id="lastname"
             value={formData.lastname}
           />
 
@@ -62,6 +64,7 @@ export default function FormComponent() {
             type="email"
             onChange={handleChange}
             name="email"
+            id="email"
             value={formData.email}
           />
 
@@ -70,6 +73,7 @@ export default function FormComponent() {
             type="password"
             onChange={handleChange}
             name="password"
+            id="password"
             value={formData.password}
           />
 
@@ -78,6 +82,7 @@ export default function FormComponent() {
             type="password"
             onChange={handleChange}
             name="passwordConfirmed"
+            id="passwordConfirmed"
             value={formData.passwordConfirmed}
           />
 
@@ -142,7 +147,7 @@ export default function FormComponent() {
               id="iMissSummer"
               onChange={handleChange}
             />
-            <label htmlFor="chckbox">Are you friendly? </label>
+            <label htmlFor="iMissSummer">Are you friendly?</label>
           </div>
 
           <br />
