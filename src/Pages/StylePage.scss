@@ -1,0 +1,11 @@
+.portfolio {
+  display: flex;
+  margin-top: 2rem;
+  gap: 4rem;
+
+  &__project {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

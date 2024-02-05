@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./FormComponent.scss";
 
 export default function FormComponent() {
@@ -40,12 +39,6 @@ export default function FormComponent() {
 
   return (
     <div>
-      <button>
-        <Link style={{ textDecoration: "inherit" }} to="/portfolio">
-          go back
-        </Link>
-      </button>
-
       <div className="form">
         <form onSubmit={handleClick} className="form__content">
           <label htmlFor="firstname">Firstname</label>
