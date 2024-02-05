@@ -5,6 +5,8 @@ import ErrorPage from "./Pages/ErrorPage";
 import PortfolioPage from "./Pages/PortfolioPage";
 import ProjectPage from "./Pages/ProjectPage";
 
+//Creating children root for PortfolioPage route to see the root layout again but with a 'blank page' on the right.
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,12 +16,12 @@ const router = createBrowserRouter([
   {
     path: "/portfolio",
     element: <PortfolioPage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/portfolio/:projectId",
-    element: <ProjectPage />,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/portfolio/:projectId",
+        element: <ProjectPage />,
+      },
+    ],
   },
 ]);
 
