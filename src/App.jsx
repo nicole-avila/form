@@ -1,16 +1,32 @@
 import "./App.scss";
-import Form from "./components/Form/Form";
-import Header from "./components/Header/Header";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LandingPage from "./Pages/LandingPage";
+import ErrorPage from "./Pages/ErrorPage";
+import PortfolioPage from "./Pages/PortfolioPage";
+import ProjectPage from "./Pages/ProjectPage";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/portfolio",
+    element: <PortfolioPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/portfolio/:projectId",
+    element: <ProjectPage />,
+    errorElement: <ErrorPage />,
+  },
+]);
 
 function App() {
   return (
     <div className="app">
-      <div className="app__header">
-        <Header />
-      </div>
-      <div className="app__form">
-        <Form />
-      </div>
+      <RouterProvider router={router} />
     </div>
   );
 }
