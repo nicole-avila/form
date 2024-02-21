@@ -4,8 +4,7 @@ import PortfolioPage from "./PortfolioPage";
 export default function LandingPage() {
   return (
     <div>
-      <Navbar />
-      <h1>landing page</h1>
+      <p>landing page</p>
     </div>
   );
 }

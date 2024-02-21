@@ -4,9 +4,8 @@ import "./Navbar.scss";
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <Link to="/portfolio">Portfolio</Link>
-      <Link to="#">About moi</Link>
-      <Link to="#">Contact</Link>
+      <Link to="/">Home</Link>
+      <Link to="/portfolio">Mini projects</Link>
     </nav>
   );
 }

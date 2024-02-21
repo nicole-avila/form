@@ -4,18 +4,40 @@ import LandingPage from "./Pages/LandingPage";
 import ErrorPage from "./Pages/ErrorPage";
 import PortfolioPage from "./Pages/PortfolioPage";
 import ProjectPage from "./Pages/ProjectPage";
+import Navbar from "./components/Navbar/Navbar";
+import About from "./Pages/About";
 
 //Creating children root for PortfolioPage route to see the root layout again but with a 'blank page' on the right.
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: (
+      <>
+        <Navbar />
+        <LandingPage />
+      </>
+    ),
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/about",
+    element: (
+      <>
+        <Navbar />
+        <About />
+      </>
+    ),
     errorElement: <ErrorPage />,
   },
   {
     path: "/portfolio",
-    element: <PortfolioPage />,
+    element: (
+      <>
+        <Navbar />
+        <PortfolioPage />
+      </>
+    ),
     children: [
       {
         path: "/portfolio/:projectId",

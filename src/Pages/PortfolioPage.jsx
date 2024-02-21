@@ -1,5 +1,5 @@
 import "./StylePage.scss";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 /*
 Importing the Outlet component from react router to act as a placeholder for any child route in the PortfolioPage component. 
@@ -10,28 +10,29 @@ This way, the child route is rendered through the Outlet component.
 */
 
 export default function PortfolioPage() {
-  const projects = [1, 2];
+  const projects = ["Form", "Book"];
+
   return (
     <div className="portfolio">
       <div className="portfolio__project">
-        <button>
-          <Link style={{ textDecoration: "inherit" }} to="/">
-            go back
-          </Link>
-        </button>
         {projects.map((project) => (
-          <NavLink
-            key={project}
-            to={`/portfolio/${project}`}
-            className={({ isActive }) => {
-              return isActive ? "text-primary-700" : "";
-            }}
-          >
-            PROJEKT {project}
-          </NavLink>
+          <div className="portfolio__navlink" key={project}>
+            <NavLink
+              style={{ textTransform: "uppercase" }}
+              to={`/portfolio/${project}`}
+              className={({ isActive }) => {
+                return isActive ? "text-primary-700" : "";
+              }}
+            >
+              {project}
+            </NavLink>
+          </div>
         ))}
       </div>
-      <Outlet />
+      {}
+      <div className="portfolio__outlet">
+        <Outlet />
+      </div>
     </div>
   );
 }

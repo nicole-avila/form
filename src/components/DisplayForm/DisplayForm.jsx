@@ -1,7 +1,9 @@
-export default function DisplayForm() {
+export default function DisplayForm(props) {
+  console.log(props);
+
   return (
     <div>
-      <h1>fomr</h1>
+      <h1>display form</h1>
     </div>
   );
 }
