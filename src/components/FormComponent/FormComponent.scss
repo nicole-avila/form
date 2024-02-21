@@ -1,6 +1,5 @@
 .form {
-  max-width: 500px;
-  margin: 2rem auto;
+  margin: auto;
   padding: 2rem;
   border-radius: 11px;
   background: rgba(255, 255, 255, 0.2);
@@ -11,8 +10,14 @@
   &__content {
     display: grid;
     text-align: left;
-    width: 300px;
-    margin: auto;
+    // width: 300px;
+    // margin: auto;
+  }
+
+  &__radio-btn {
+    display: flex;
+    align-items: normal;
+    gap: 0.3rem;
   }
 
   & input {

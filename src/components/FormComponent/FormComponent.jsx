@@ -1,30 +1,16 @@
 import { useState } from "react";
 import "./FormComponent.scss";
+import useFormData from "../../hooks/useFormData";
+import DisplayForm from "../DisplayForm/DisplayForm";
 
 export default function FormComponent() {
-  const [formData, setFormData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    passwordConfirmed: "",
-    gender: "",
-    comments: "",
-    iMissSummer: false,
-  });
-
-  function handleChange(event) {
-    const { name, type, value, checked } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: type === value ? checked : value,
-    }));
-  }
+  const { formData, setFormData, handleChange } = useFormData();
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   function handleClick(e) {
     e.preventDefault();
     console.log(formData);
-
+    setFormSubmitted(true);
     setFormData({
       firstname: "",
       lastname: "",
@@ -38,8 +24,10 @@ export default function FormComponent() {
   }
 
   return (
-    <div>
-      <div className="form">
+    <div className="form">
+      {formSubmitted ? (
+        <DisplayForm formData={formData} />
+      ) : (
         <form onSubmit={handleClick} className="form__content">
           <label htmlFor="firstname">Firstname </label>
           <input
@@ -88,7 +76,7 @@ export default function FormComponent() {
 
           <fieldset>
             <legend>Your Gender</legend>
-            <div>
+            <div className="form__radio-btn">
               <input
                 type="radio"
                 name="gender"
@@ -100,7 +88,7 @@ export default function FormComponent() {
               <label htmlFor="king">King</label>
             </div>
 
-            <div>
+            <div className="form__radio-btn">
               <input
                 type="radio"
                 name="gender"
@@ -112,7 +100,7 @@ export default function FormComponent() {
               <label htmlFor="queen">Queen</label>
             </div>
 
-            <div>
+            <div className="form__radio-btn">
               <input
                 type="radio"
                 name="gender"
@@ -136,10 +124,8 @@ export default function FormComponent() {
             onChange={handleChange}
             value={formData.comments}
           />
-
           <br />
-
-          <div>
+          <div className="form__radio-btn">
             <input
               type="checkbox"
               checked={formData.iMissSummer} //Vid checkbox är det checked som avgör om "värdet" är true eller false
@@ -154,7 +140,7 @@ export default function FormComponent() {
           <br />
           <button>View the result</button>
         </form>
-      </div>
+      )}
     </div>
   );
 }
